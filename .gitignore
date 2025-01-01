@@ -53,3 +53,5 @@ Thumbs.db
 # Archivos que contienen claves API o secretos
 secrets.json
 credentials.json
+.codegpt/
+
