@@ -57,3 +57,4 @@ credentials.json
 
 
 .codegpt
+db.sqlite3
