@@ -7,6 +7,7 @@ from .forms import TaskForm
 from .models import Task
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -86,6 +87,7 @@ def create_task(request):
             new_task = form.save(commit=False)
             new_task.user = request.user
             new_task.save()
+            messages.success(request, 'Task created successfully!')
             return redirect('tasks')
         except ValueError:
             return render(request, 'create_task.html', {
@@ -105,6 +107,7 @@ def task_detail(request, task_id):
             task = get_object_or_404(Task, pk=task_id, user = request.user)
             form = TaskForm(request.POST, instance=task)
             form.save()
+            messages.success(request, 'Task updated successfully!')
             return redirect('tasks')
         except ValueError:
             return render(request, 'task_detail.html', {
@@ -119,6 +122,7 @@ def complete_task(request, task_id):
     if request.method == 'POST':
         task.datecompleted = timezone.now()
         task.save()
+        messages.success(request, 'Task marked as complete!')
         return redirect('tasks')
 
 @login_required    
@@ -126,4 +130,5 @@ def delete_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id, user = request.user)
     if request.method == 'POST':
         task.delete()
+        messages.success(request, 'Task deleted successfully!')
         return redirect('tasks')
