@@ -6,19 +6,27 @@
         <h1 class="display-1 text-center">Django App</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis suscipit molestias, reiciendis id iure ipsa
             pariatur repellat, minima quaerat illum unde sunt, fugiat repudiandae saepe modi! Doloremque excepturi
-            incidunt
-            nihil! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident debitis doloremque ullam. Magni
-            error
-            consequatur assumenda veritatis porro, aperiam eius sequi? Voluptas eius qui beatae et eum quis cupiditate
+            incidunt nihil! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident debitis doloremque ullam. Magni
+            error consequatur assumenda veritatis porro, aperiam eius sequi? Voluptas eius qui beatae et eum quis cupiditate
             magnam.</p>
+
+            {% if user.is_authenticated %}
+            <div class="text-center">
+                <p>Welcome, {{ user.username }}!</p> <!-- Muestra el nombre de usuario -->
+                <a class="btn btn-danger" href="/logout/">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+            {% else %}
             <div class="text-center">
                 <a class="btn btn-primary" href="/signin/">
                     <i class="fas fa-sign-in-alt"></i>  Sign In
                 </a>
                 <a class="btn btn-primary" href="/signup/">
-                    <i class="fas fa-user-plus"></i>Sign Up
+                    <i class="fas fa-user-plus"></i> Sign Up
                 </a>
             </div>
+            {% endif %}
     </section>
 </main>
 {% endblock %}
