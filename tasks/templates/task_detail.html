@@ -12,22 +12,27 @@
           </div>
           {% endif %}
           <div class="mt-4">
-            <form action="{% url 'task_detail' task.id %}" method="POST" class="mb-3">
+            <!-- Formulario de Actualización -->
+            <form id="update-task-form" action="{% url 'task_detail' task.id %}" method="POST" class="mb-3">
               {% csrf_token %}
               {{ form.as_p }}
-              <button class="btn btn-primary btn-block w-100">
+              <button type="button" class="btn btn-primary btn-block w-100" onclick="confirmUpdate();">
                 <span><i class="fa fa-refresh"></i></span> Update Task
               </button>
             </form>
-            <form action="{% url 'complete_task' task.id %}" method="POST" class="mb-3">
+            
+            <!-- Formulario para Completar -->
+            <form id="complete-task-form" action="{% url 'complete_task' task.id %}" method="POST" class="mb-3">
               {% csrf_token %}
-              <button class="btn btn-success btn-block w-100">
+              <button type="button" class="btn btn-success btn-block w-100" onclick="confirmComplete();">
                 <i class="fas fa-check-circle"></i> Complete
               </button>
             </form>
-            <form action="{% url 'delete_task' task.id %}" method="POST" class="mb-3">
+            
+            <!-- Formulario para Eliminar -->
+            <form id="delete-task-form" action="{% url 'delete_task' task.id %}" method="POST" class="mb-3">
               {% csrf_token %}
-              <button class="btn btn-danger btn-block w-100">
+              <button type="button" class="btn btn-danger btn-block w-100" onclick="confirmDelete();">
                 <i class="fa fa-trash"></i> Delete
               </button>
             </form>
@@ -37,4 +42,57 @@
     </div>
   </div>
 </main>
+
+<script>
+  // Función para confirmar actualización
+  function confirmUpdate() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to update this task?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, update it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('update-task-form').submit();
+      }
+    });
+  }
+
+  // Función para confirmar completado
+  function confirmComplete() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to mark this task as complete?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#28a745',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, complete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('complete-task-form').submit();
+      }
+    });
+  }
+
+  // Función para confirmar eliminación
+  function confirmDelete() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "This action cannot be undone. Do you want to delete this task?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('delete-task-form').submit();
+      }
+    });
+  }
+</script>
 {% endblock %}
