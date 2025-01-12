@@ -13,6 +13,9 @@
             {% if user.is_authenticated %}
             <div class="text-center">
                 <p>Welcome, {{ user.username }}!</p> <!-- Muestra el nombre de usuario -->
+                 <p class="card-text">
+                Ahora que estas autenticado podrás gestionar tus tareas fácilmente utilizando las operaciones básicas <strong>CRUD</strong> (Crear, Leer, Actualizar y Eliminar).
+                </p>
                 <a class="btn btn-danger" href="/logout/">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
@@ -25,9 +28,7 @@
                 <li><strong>Crea una cuenta</strong> si eres nuevo, haciendo clic en <span class="text-primary">"Sign Up"</span>.</li>
                 <li><strong>Inicia sesión</strong> si ya tienes un usuario, seleccionando <span class="text-primary">"Sign In"</span>.</li>
             </ul>
-            <p class="card-text">
-                Ahora que estas autenticado podrás gestionar tus tareas fácilmente utilizando las operaciones básicas <strong>CRUD</strong> (Crear, Leer, Actualizar y Eliminar).
-            </p>
+           
             <div class="text-center">
                 <a class="btn btn-primary" href="/signin/">
                     <i class="fas fa-sign-in-alt"></i>  Sign In
