@@ -8,16 +8,7 @@
             <p class="card-text">
                 Una aplicación web desarrollada con <strong>Django</strong>, implementada en la plataforma <strong>Render.com</strong> y diseñada con el framework de estilo <strong>Bootstrap</strong>.
             </p>
-            <p class="card-text">
-                Para comenzar, elige una de las opciones disponibles:
-            </p>
-            <ul class="list-unstyled">
-                <li><strong>Crea una cuenta</strong> si eres nuevo, haciendo clic en <span class="text-primary">"Sign Up"</span>.</li>
-                <li><strong>Inicia sesión</strong> si ya tienes un usuario, seleccionando <span class="text-primary">"Sign In"</span>.</li>
-            </ul>
-            <p class="card-text">
-                Una vez dentro, podrás gestionar tus tareas fácilmente utilizando las operaciones básicas <strong>CRUD</strong> (Crear, Leer, Actualizar y Eliminar).
-            </p>
+           
 
             {% if user.is_authenticated %}
             <div class="text-center">
@@ -27,6 +18,16 @@
                 </a>
             </div>
             {% else %}
+             <p class="card-text">
+                Para comenzar, elige una de las opciones disponibles:
+            </p>
+            <ul class="list-unstyled">
+                <li><strong>Crea una cuenta</strong> si eres nuevo, haciendo clic en <span class="text-primary">"Sign Up"</span>.</li>
+                <li><strong>Inicia sesión</strong> si ya tienes un usuario, seleccionando <span class="text-primary">"Sign In"</span>.</li>
+            </ul>
+            <p class="card-text">
+                Ahora que estas autenticado podrás gestionar tus tareas fácilmente utilizando las operaciones básicas <strong>CRUD</strong> (Crear, Leer, Actualizar y Eliminar).
+            </p>
             <div class="text-center">
                 <a class="btn btn-primary" href="/signin/">
                     <i class="fas fa-sign-in-alt"></i>  Sign In
