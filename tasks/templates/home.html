@@ -4,11 +4,20 @@
 <main class="container py-5">
     <section class="card card-body">
         <h1 class="display-1 text-center">Django App</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis suscipit molestias, reiciendis id iure ipsa
-            pariatur repellat, minima quaerat illum unde sunt, fugiat repudiandae saepe modi! Doloremque excepturi
-            incidunt nihil! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident debitis doloremque ullam. Magni
-            error consequatur assumenda veritatis porro, aperiam eius sequi? Voluptas eius qui beatae et eum quis cupiditate
-            magnam.</p>
+         <h3 class="card-title mb-4">Bienvenido a Nuestra Aplicación</h3>
+            <p class="card-text">
+                Una aplicación web desarrollada con <strong>Django</strong>, implementada en la plataforma <strong>Render.com</strong> y diseñada con el framework de estilo <strong>Bootstrap</strong>.
+            </p>
+            <p class="card-text">
+                Para comenzar, elige una de las opciones disponibles:
+            </p>
+            <ul class="list-unstyled">
+                <li><strong>Crea una cuenta</strong> si eres nuevo, haciendo clic en <span class="text-primary">"Sign Up"</span>.</li>
+                <li><strong>Inicia sesión</strong> si ya tienes un usuario, seleccionando <span class="text-primary">"Sign In"</span>.</li>
+            </ul>
+            <p class="card-text">
+                Una vez dentro, podrás gestionar tus tareas fácilmente utilizando las operaciones básicas <strong>CRUD</strong> (Crear, Leer, Actualizar y Eliminar).
+            </p>
 
             {% if user.is_authenticated %}
             <div class="text-center">
